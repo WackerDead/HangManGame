@@ -1,8 +1,6 @@
 import os
 import time
 
-from discord import backoff
-
 def clear():
     os.system('cls')
 

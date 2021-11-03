@@ -14,7 +14,8 @@ class Game :
 
     def start(self):
         self.writeLetters()
-        time.sleep(5)
+        time.sleep(2)
+        input('Press enter to play again...')
         clear()
         startNewGame()
 
@@ -33,17 +34,18 @@ class Game :
 
         letter = input('\nType a letter: ')
 
-        if len(letter) > 1:
+        '''if len(letter) > 1:
             print('You need to type a single letter')
             time.sleep(1)
             self.writeLetters()
-            return
+            return'''
 
         lowerWord = self.word.lower()
 
-        for i in range(len(self.word)):
-            if lowerWord[i] == letter.lower():
-                self.hiddenWord = self.hiddenWord[:i] + self.word[i] + self.hiddenWord[i + 1:]
+        for l in letter:
+            for i in range(len(self.word)):
+                if lowerWord[i] == l.lower():
+                    self.hiddenWord = self.hiddenWord[:i] + self.word[i] + self.hiddenWord[i + 1:]
         if not letter.lower() in lowerWord and not letter.lower() in self.letterNotInWord: 
             self.letterNotInWord += letter.lower() + ', '
             self.fails += 1 
@@ -72,7 +74,13 @@ class Game :
         
         manParts = self.manParts
 
-        hang = hang.format(head = manParts[1 if 1 <= fails else 0], torso = manParts[2 if 2 <= fails else 0], leftArm = manParts[3 if 3 <= fails else 0], rightArm = manParts[4 if 4 <= fails else 0], leftLeg = manParts[5 if 5 <= fails else 0], rightLeg = manParts[6 if 6 <= fails else 0])
+        hang = hang.format(
+            head = manParts[1 if fails >= 1 else 0], 
+            torso = manParts[2 if fails >= 2 else 0], 
+            leftArm = manParts[3 if fails >= 3 else 0], 
+            rightArm = manParts[4 if fails >= 4 else 0], 
+            leftLeg = manParts[5 if fails >= 5 else 0], 
+            rightLeg = manParts[6 if fails >= 6 else 0])
 
         return hang
 

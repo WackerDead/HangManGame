@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jogo da Forca</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <h1 class="title">Jogo da Forca</h1>
+        </div>
+        <div>
+            <label>Word</label>
+            <input type="text" id="InputBoxWord">
+        </div>
+        <div>
+            <label>Theme</label>
+            <input type="text" id="InputBoxTheme">
+        </div>
+        <button onclick="Init()">Click Me!</button>
+        <p id="HiddenWord"></p>
+        <p id="LetterNotInWord"></p>
+        <div>
+            <label>Input</label>
+            <input type="text" id="Input">
+            <button type="button" onclick="WriteLetters()">Submit!</button>
+        </div>
+    </body>
+
+</html>
